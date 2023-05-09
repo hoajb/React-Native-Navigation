@@ -6,14 +6,14 @@ type Props = {
     route: any
 }
 
-const ProductCatalogueScreen = ({ navigation, route }: Props) => {
+const ProductCardScreen = ({ navigation, route }: Props) => {
     const { id, step } = route.params
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Product Catalogue Screen with Id {id} and Deep {step}</Text>
-            <Button title='Go to Product Catalogue inside' onPress={() => {
-                navigation.push('ProductCatalogueScreen', { id: id, step: step + 1 });
+            <Text style={styles.title}>Product Card Screen with Id {id} {'\n'} Deep {step}</Text>
+            <Button title='Go to Product Card inside' onPress={() => {
+                navigation.push('ProductCardScreen', { id: id, step: step + 1 });
             }} />
 
         </View>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default ProductCatalogueScreen;
+export default ProductCardScreen;

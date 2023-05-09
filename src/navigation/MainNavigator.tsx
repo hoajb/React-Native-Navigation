@@ -4,12 +4,14 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProductCatalogueScreen from '../screens/ProductCatalogueScreen';
+import ProductCardScreen from '../screens/ProductCardScreen';
 
 export type RootStackParamList = {
     HomeScreen: undefined;
     ProfileScreen: { name: string };
     SearchScreen: undefined;
     ProductCatalogueScreen: { id: number, step: number };
+    ProductCardScreen: { id: number, step: number };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -21,6 +23,7 @@ const MainNavigator = () => {
             <Stack.Screen name="SearchScreen" component={SearchScreen} options={{ title: "Search" }} />
             <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: "Profile" }} />
             <Stack.Screen name="ProductCatalogueScreen" component={ProductCatalogueScreen} options={{ title: "ProductCatalogue" }} />
+            <Stack.Screen name="ProductCardScreen" component={ProductCardScreen} options={{ title: "ProductCard" }} />
 
         </Stack.Navigator>
     )

@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native'
+import CircleCategory from "../components/CircleCategory";
+import ProductCard from "../components/ProductCard";
 
 interface Props {
     navigation: any
@@ -19,26 +21,93 @@ const HomeScreen = ({ navigation }: Props) => {
         navigation.navigate('ProductCatalogueScreen', { id: id, step: step });
     };
 
+    const goToProductCard = (id: number, step: number) => {
+        navigation.navigate('ProductCardScreen', { id: id, step: step });
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Welcome to the Home Screen</Text>
+            <View style={styles.button}>
+                <View style={{ flex: 1 }}>
+                    <Button
+                        title="Go to Search Screen"
+                        onPress={goToSearch}
+                    />
+                </View>
+            </View>
+
+            <View style={styles.menu_container}>
+                <CircleCategory handlePress={(id: number) => {
+                    goToProductCatalogue(id, 0);
+                }} id={0} />
+
+                <CircleCategory handlePress={(id: number) => {
+                    goToProductCatalogue(id, 0);
+                }} id={10} />
+
+
+                <CircleCategory handlePress={(id: number) => {
+                    goToProductCatalogue(id, 0);
+                }} id={20} />
+
+            </View>
+
+            <Text style={styles.title}> Product Catalogue</Text>
+
+            <View style={styles.menu_container}>
+                <ProductCard handlePress={(id: number) => {
+                    goToProductCard(id, 0);
+                }} id={0} />
+
+                <ProductCard handlePress={(id: number) => {
+                    goToProductCard(id, 0);
+                }} id={10} />
+
+
+                <ProductCard handlePress={(id: number) => {
+                    goToProductCard(id, 0);
+                }} id={20} />
+
+            </View>
+            <Text style={styles.title}> Product Catalogue</Text>
+
+            
+
             <Button title="Go to Profile Screen" onPress={goToProfile} />
-            <Button title="Go to Search Screen" onPress={goToSearch} />
-            <Button title="Go to ProductCatalogue" onPress={() => goToProductCatalogue(1, 0)} />
         </View>
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
     },
     title: {
-        fontSize: 24,
+        fontSize: 18,
+        color: 'blue',
         marginBottom: 20,
     },
+    button: {
+        flexDirection: "row",
+        backgroundColor: 'transparent',
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 0,
+        margin: 10
+    },
+
+    menu_container: {
+        flexDirection: "row",
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 0,
+        margin: 10
+    },
+
 });
 
 export default HomeScreen;
