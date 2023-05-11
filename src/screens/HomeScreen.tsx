@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native'
 import CircleCategory from "../components/CircleCategory";
 import ProductCard from "../components/ProductCard";
+import { RootStackParamList } from "../navigation/MainNavigator";
+import { StackScreenProps } from "@react-navigation/stack";
 
-interface Props {
-    navigation: any
-}
+type HomeScreenProps = StackScreenProps<RootStackParamList, "HomeScreen">;
 
-const HomeScreen = ({ navigation }: Props) => {
+const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
     const goToProfile = () => {
         navigation.navigate('ProfileScreen', { name: "Jane" });
@@ -71,7 +71,7 @@ const HomeScreen = ({ navigation }: Props) => {
             </View>
             <Text style={styles.title}> Product Catalogue</Text>
 
-            
+
 
             <Button title="Go to Profile Screen" onPress={goToProfile} />
         </View>

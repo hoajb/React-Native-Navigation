@@ -1,17 +1,20 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { RootStackParamList } from '../navigation/MainNavigator';
+import { ProfileScreenProps, RootDrawerParamList, RootStackParamList } from '../navigation/MainNavigator';
 import { RouteProp } from '@react-navigation/native';
+import { DrawerScreenProps } from '@react-navigation/drawer';
 
-type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList, 'ProfileScreen'>;
-type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'ProfileScreen'>;
+// type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList, 'ProfileScreen'>;
+// type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'ProfileScreen'>;
 
-interface Props {
-    navigation: ProfileScreenNavigationProp,
-    route: ProfileScreenRouteProp
-}
-const ProfileScreen = ({ navigation, route }: Props) => {
+// interface ProfileScreenProps {
+//     navigation: ProfileScreenNavigationProp,
+//     route: ProfileScreenRouteProp
+// }
+
+
+const ProfileScreen = ({ navigation, route }: ProfileScreenProps) => {
     const { name } = route.params
     return (
         <View style={styles.container}>
